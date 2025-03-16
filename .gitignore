@@ -1,24 +1,33 @@
-# Logs
-logs
-*.log
+# Node modules
+node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Build output
+dist/
+out/
+build/
+
+# Firebase-related cache and artifacts
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+.firebaserc (optional, if you don't want to track project settings)
+
+# Vite cache
+.vite/
+.vitepress/
+.cache/
+
+# macOS and Linux system files
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+*.swp
+*.swo
