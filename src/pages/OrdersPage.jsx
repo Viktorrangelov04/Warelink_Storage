@@ -1,14 +1,14 @@
 import { useAuth } from "../context/AuthContext";
 import LoggedInHeader from "../components/LoggedInHeader";
-function DashboardPage() {
+function OrdersPage() {
     const { user } = useAuth();
 
     return (
         <div>
             <LoggedInHeader/>
-            <h1>Dashboard</h1>
+            <h1>Orders</h1>
         </div>
     );
 }
 
-export default DashboardPage;
+export default OrdersPage;
