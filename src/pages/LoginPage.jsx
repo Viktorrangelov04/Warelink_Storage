@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { useState} from "react";
-import { useEffect} from "react";
+import { useState, useEffect} from "react";
+import { useAuth } from "../context/AuthContext";
 import { useNavigate} from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 import Header from "../components/Header";
@@ -8,13 +8,13 @@ import Footer from "../components/Footer";
 
 function LoginPage() {
   const { user } = useAuth();
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
   
   useEffect(()=>{
     if (user){
-      navigate("/dashboard");
+      Navigate("/dashboard");
     }
-  }, [user, navigate])
+  }, [user, Navigate])
 
   if(user){
     return <Navigate to="/dashboard"/>
