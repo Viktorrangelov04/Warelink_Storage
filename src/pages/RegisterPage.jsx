@@ -23,7 +23,7 @@ function RegisterPage() {
 
   useEffect(() => {
     if (user) {
-      navigate("/dashboard"); // ✅ Redirect if user is logged in
+      navigate("/dashboard"); 
     }
   }, [user, navigate]);
 

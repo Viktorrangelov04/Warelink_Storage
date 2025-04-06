@@ -3,14 +3,14 @@ import {getAuth} from "firebase/auth";
 import {getFirestore} from "firebase/firestore";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBnqpYjww5dBL02xSdQWiLC1JgtE-lAzL0",
-    authDomain: "warelink-warehouse-manager.firebaseapp.com",
-    projectId: "warelink-warehouse-manager",
-    storageBucket: "warelink-warehouse-manager.firebasestorage.app",
-    messagingSenderId: "326976324328",
-    appId: "1:326976324328:web:d1cd1d7efd88b5b2773f5d",
-    measurementId: "G-1MQ7N8F102"
-}
+    apiKey: "AIzaSyB3BhVOReju5IQ6_R2GAy36CdkEJ6zaOI0",
+    authDomain: "astral-bit-450012-k3.firebaseapp.com",
+    projectId: "astral-bit-450012-k3",
+    storageBucket: "astral-bit-450012-k3.firebasestorage.app",
+    messagingSenderId: "151996753339",
+    appId: "1:151996753339:web:09943107f7ff023df1109e",
+    measurementId: "G-L575MM1Z8Q"
+  };
 
 const app = initializeApp(firebaseConfig);
 

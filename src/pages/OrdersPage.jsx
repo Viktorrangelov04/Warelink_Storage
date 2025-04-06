@@ -1,14 +1,28 @@
-import { useAuth } from "../context/AuthContext";
+import React from "react";
+import { Outlet, NavLink } from "react-router-dom";
+import { Typography } from "@mui/material";
 import LoggedInHeader from "../components/LoggedInHeader";
-function OrdersPage() {
-    const { user } = useAuth();
 
-    return (
-        <div>
-            <LoggedInHeader/>
-            <h1>Orders</h1>
+export default function OrdersPage() {
+  return (
+    
+    <div>
+      <LoggedInHeader />
+      <div className="w-4/5 mx-auto">
+        <Typography variant="h4" gutterBottom>
+          Orders
+        </Typography> 
+
+        
+        <div className="flex gap-4 mb-6">
+          <NavLink to="/orders" end>Received Orders</NavLink>
+          <NavLink to="/orders/history">Order History</NavLink>
         </div>
-    );
-}
 
-export default OrdersPage;
+        
+        <Outlet /> 
+      </div>
+   </div> 
+    
+  );
+}

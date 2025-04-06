@@ -8,17 +8,14 @@ import Footer from "../components/Footer";
 
 function LoginPage() {
   const { user } = useAuth();
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   
   useEffect(()=>{
     if (user){
-      Navigate("/dashboard");
+      navigate("/dashboard");
     }
-  }, [user, Navigate])
+  }, [user, navigate])
 
-  if(user){
-    return <Navigate to="/dashboard"/>
-  }
   return (
     <div className="min-h-screen flex flex-col">
       <Header />

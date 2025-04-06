@@ -12,9 +12,7 @@ export const AuthProvider = ({ children }) => {
     });
 
     useEffect(() => {
-        console.log("onAuthStateChanged is running...");
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            console.log("Firebase detected user change:", currentUser);
             if (currentUser) {
                 localStorage.setItem("user", JSON.stringify(currentUser));
                 setUser(currentUser);
@@ -60,10 +58,10 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const value = useMemo(() => ({ user, login, register, logout }), [user]);
+    const value = useMemo(() => ({ user, loading, login, register, logout }), [user, loading]);
 
     if (loading) {
-        return <h1>Loading...</h1>; // Prevents app from rendering before Firebase finishes loading
+        return <h1>Loading...</h1>; 
     }
 
     return (
