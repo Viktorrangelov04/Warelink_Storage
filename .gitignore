@@ -21,7 +21,9 @@ build/
 firebase-debug.log
 firebase-debug.*.log
 .firebaserc (optional, if you don't want to track project settings)
-
+firebase.json
+firestore.rules
+firebase.indexes.json
 # Vite cache
 .vite/
 .vitepress/
