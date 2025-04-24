@@ -42,3 +42,20 @@ export async function getProducts(){
     const snapshot = await getDocs(productCollection);
     return snapshot.docs.map(doc =>({id: doc.id, ...doc.data()}));
 }
+
+export async function deleteProduct(id) {
+  const productRef = doc(db, "products", id);
+  return await deleteDoc(productRef);
+}
+
+export async function updateProduct(product) {
+  const productRef = doc(db, "products", product.id);
+  return await updateDoc(productRef, {
+    name: product.name,
+    price: product.price,
+    quantity: product.quantity,
+    updatedAt: new Date()
+  });
+}
+
+
