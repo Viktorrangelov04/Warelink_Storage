@@ -1,6 +1,6 @@
 # Warehouse Management App
 
-**Admin panel** for [Warelink](https://github.com/ViCS69/WareLink), used to manage inventory and track performance.
+- **Admin panel** for [Warelink](https://github.com/ViCS69/WareLink), used to manage inventory and track performance.
   -https://www.youtube.com/watch?v=r3Fi76_VLZQ video showing how it works
   -warelink-storage.netlify.app link to try it
   -store acc: email: v2@abv.bg PW: viki02
