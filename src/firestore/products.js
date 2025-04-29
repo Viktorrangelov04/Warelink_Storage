@@ -1,4 +1,4 @@
-import { collection,  addDoc, getDoc, getDocs, query, where, updateDoc, doc} from "firebase/firestore";
+import { collection,  addDoc, getDoc, getDocs, query, where, updateDoc, doc, deleteDoc} from "firebase/firestore";
 import { auth, db } from "../firebaseConfig.js";
 import { cleanProductName } from "../utils.js";
 
