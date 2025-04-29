@@ -283,6 +283,8 @@ export default function InventoryPage() {
         <div className="fixed inset-0 flex justify-center items-center z-50">
           <div className="bg-white border border-black p-6 rounded shadow w-96">
             <h2 className="text-xl font-bold mb-4">Edit Product</h2>
+            <label>
+              Name:
             <input
               type="text"
               className="border p-2 rounded w-full mb-2"
@@ -291,6 +293,8 @@ export default function InventoryPage() {
                 setEditProduct({ ...editProduct, name: e.target.value })
               }
             />
+            </label>
+            <label>Price:
             <input
               type="number"
               className="border p-2 rounded w-full mb-2"
@@ -303,6 +307,8 @@ export default function InventoryPage() {
               }
               placeholder="Sell Price"
             />
+            </label>
+            <label>Add quantity
             <input
               type="number"
               className="border p-2 rounded w-full mb-2"
@@ -315,6 +321,7 @@ export default function InventoryPage() {
                 })
               }
             />
+            </label>
             <div className="flex justify-end gap-2">
               <button
                 className="bg-gray-300 px-4 py-2 rounded"

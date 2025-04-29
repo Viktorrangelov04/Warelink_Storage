@@ -60,7 +60,7 @@ export async function updateProduct(product) {
 
 export async function fetchMargin() {
   const user = auth.currentUser;
-  if (!user) return 0.3; // fallback to 0.3 if not logged in
+  if (!user) return 0.3; 
 
   const storeDoc = await getDoc(doc(db, "stores", user.uid));
   if (storeDoc.exists()) {

@@ -15,17 +15,19 @@
   - Sell price  
   - Buy price  
   - Quantity  
-
+  - Marking in red for low quantity items
+  - Search for item by name
 - **Dashboard**
   - Track store revenue in real time  
+
+- **Received orders**
+  -View all placed orders and complete them
 
 - **Order history**
   - View all fulfilled orders from the storefront  
 
+- ** Profile Menu **
+  - Edit personal info and set default margin to automatically calculate sell price
 ---
 
-## Coming Soon
 
-- Low stock notifications  
-- Most sold item statistics  
-- Export inventory and sales to CSV/PDF  
