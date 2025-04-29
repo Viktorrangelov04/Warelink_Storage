@@ -11,14 +11,6 @@ dist/
 out/
 build/
 
-.firebase/
-firebase-debug.log
-firebase-debug.*.log
-.firebaserc 
-firebase.json
-firestore.rules
-firebase.indexes.json
-
 .vite/
 .vitepress/
 .cache/

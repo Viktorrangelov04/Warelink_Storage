@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { doc, updateDoc } from "firebase/firestore";
+import { doc, updateDoc, getDoc } from "firebase/firestore";
 import { db, auth } from "../firebaseConfig";
 
 import LoggedInHeader from "../components/LoggedInHeader";
@@ -24,10 +24,27 @@ export default function ProfilePage() {
   ];
 
   useEffect(() => {
-    async function loadUserDetails() {
+    async function loadData() {
+      const user = auth.currentUser;
+      if (!user) return;
+  
       const details = await getUserDetails();
       setUserDetails(details);
-
+  
+      const storeRef = doc(db, "stores", user.uid);
+      const storeSnap = await getDoc(storeRef);
+  
+      if (storeSnap.exists()) {
+        const store = storeSnap.data();
+        setStoreData(store);
+  
+        setMarginInput(
+          store?.margin !== undefined ? (store.margin * 100).toFixed(0) : "30"
+        );
+      } else {
+        setMarginInput("30");
+      }
+  
       setInputValues({
         businessName: details?.businessName || "",
         eik: details?.eik || "",
@@ -35,11 +52,9 @@ export default function ProfilePage() {
         mol: details?.mol || "",
         address: details?.address || "",
       });
-      setMarginInput(
-        details?.margin !== undefined ? (details.margin * 100).toFixed(0) : "30"
-      );
     }
-    loadUserDetails();
+  
+    loadData();
   }, []);
 
   const handleSaveField = async (fieldKey) => {

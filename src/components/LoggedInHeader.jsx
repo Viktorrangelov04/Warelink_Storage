@@ -3,7 +3,7 @@ import ProfileMenu from './ProfileMenu';
 
 function LoggedInHeader() {
     return(
-        <header className="pb-2 border-b-1">
+        <header className="border-b-1">
             <div className="w-4/5 mx-auto flex align-center justify-between">
                 <div className="flex">
                     <img className="size-12 " src="/StorageLogo.png" alt="logo"/>
