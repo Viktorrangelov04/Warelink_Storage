@@ -1,5 +1,5 @@
-import { collection,  addDoc, getDocs, query, where, updateDoc, doc} from "firebase/firestore";
-import { db } from "../firebaseConfig.js";
+import { collection,  addDoc, getDoc, getDocs, query, where, updateDoc, doc} from "firebase/firestore";
+import { auth, db } from "../firebaseConfig.js";
 import { cleanProductName } from "../utils.js";
 
 const productCollection= collection(db, "products");
@@ -58,4 +58,14 @@ export async function updateProduct(product) {
   });
 }
 
+export async function fetchMargin() {
+  const user = auth.currentUser;
+  if (!user) return 0.3; // fallback to 0.3 if not logged in
 
+  const storeDoc = await getDoc(doc(db, "stores", user.uid));
+  if (storeDoc.exists()) {
+    return storeDoc.data()?.margin ?? 0.3;
+  }
+
+  return 0.3;
+}

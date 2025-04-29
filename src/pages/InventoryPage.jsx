@@ -1,10 +1,12 @@
 import { useAuth } from "../context/AuthContext"
+import {auth} from "../firebaseConfig"
 import { useEffect, useState } from "react"
 import {
   deleteProduct,
   updateProduct,
   addProduct,
   getProducts,
+  fetchMargin,
 } from "../firestore/products"
 import LoggedInHeader from "../components/LoggedInHeader"
 import { calculatePrice } from "../utils"
@@ -14,18 +16,32 @@ export default function InventoryPage() {
   const { user } = useAuth()
   const [allProducts, setAllProducts] = useState([])
   const [filteredProducts, setFilteredProducts] = useState([])
-  const [newProduct, setNewProduct] = useState({
-    name: "",
-    buyPrice: "",
-    quantity: "",
-    margin: 0.3,
-  })
+  
   const [overridePrice, setOverridePrice] = useState(null)
   const [lowStockThreshold, setLowStockThreshold] = useState(5)
   const [editProduct, setEditProduct] = useState(null)
   const [categories, setCategories] = useState([])
   const [selectedCategory, setSelectedCategory] = useState("All")
   const [searchTerm, setSearchTerm] = useState("")
+  const [margin, setMargin] = useState(null);
+  const [newProduct, setNewProduct] = useState({
+    name: "",
+    buyPrice: "",
+    quantity: "",
+    margin: margin || "",
+  })
+
+  useEffect(() => {
+    async function loadMargin() {
+      const defaultMargin = await fetchMargin();
+      setMargin(defaultMargin);
+      setNewProduct((prev) => ({
+        ...prev,
+        margin: defaultMargin,
+      }));
+    }
+    loadMargin();
+  }, []);
 
   const override =
     overridePrice === null || overridePrice.trim() === ""
@@ -97,7 +113,7 @@ export default function InventoryPage() {
     }
 
     await addProduct(productData)
-    setNewProduct({ name: "", buyPrice: "", quantity: "", margin: 0.3 })
+    setNewProduct({ name: "", buyPrice: "", quantity: "", margin: margin ?? 0.3 })
     setOverridePrice(null)
     loadProducts()
   }
