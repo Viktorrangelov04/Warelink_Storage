@@ -26,7 +26,7 @@
 - **Order history**
   - View all fulfilled orders from the storefront  
 
-- ** Profile Menu **
+- **Profile Menu**
   - Edit personal info and set default margin to automatically calculate sell price
 ---
 
